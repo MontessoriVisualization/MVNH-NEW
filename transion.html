@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+   .advertisement {
+    width: 100%;
+}
+
+.mobilebackground {
+    position: relative;
+    background-image: url(assects/picture/home-phones.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 635px;
+    width: 465px;
+}
+
+.main-img {
+    position: absolute;
+    top: 26px;
+    left: 155px;
+    opacity: 0;
+    transition: opacity 1s ease-in-out; /* Smooth fade effect */
+}
+
+.main-img.active {
+    opacity: 1;
+}
+
+    </style>
+</head>
+
+<body>
+    <section>
+        <div class="advertisement">
+            <div class="mobilebackground">
+                <div class="image-container">
+                    <div class="main-image1 main-img active"><img src="/assects/picture/screenshot1.png" alt=""
+                            srcset=""></div>
+                    <div class="main-image2 main-img"><img src="assects/picture/screenshot2.png" alt=""></div>
+                    <div class="main-image3 main-img"><img src="assects/picture/screenshot3.png" alt="" srcset=""></div>
+                    <div class="main-image4 main-img"><img src="assects/picture/screenshot4.png" alt=""></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        const images = document.querySelectorAll('.image-container .main-img');
+        let currentIndex = 0;
+
+        function showNextImage() {
+            // Remove 'active' from the current image
+            images[currentIndex].classList.remove('active');
+
+            // Move to the next image
+            currentIndex = (currentIndex + 1) % images.length;
+
+            // Add 'active' to the next image
+            images[currentIndex].classList.add('active');
+        }
+
+        // Change images every 3 seconds
+        setInterval(showNextImage, 3000);
+    </script>
+</body>
+
+</html>
